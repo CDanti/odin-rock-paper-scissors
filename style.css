@@ -1,0 +1,24 @@
+.btns{
+    display: flex;
+    justify-content: center;
+    justify-content: space-around;
+    height: 40px;
+    border:solid;
+}
+
+.rock{
+    background-color: blue;
+    color:white;
+    width: 100px;
+}
+
+.paper{
+    background-color: white;
+    width: 100px;
+}
+
+.scissors{
+    background-color: red;
+    color: white;
+    width: 100px;
+}

@@ -30,7 +30,7 @@ function game(){
     let wins = 0
     let losses = 0
     let ties = 0
-    for (let i = 0; i < 5; i++) {
+    // for (let i = 0; i < 5; i++) {
         let playerSelection=(prompt("Please enter Rock, Paper, or Scissors: "));
         let computerSelection = computerPlay();
         result = playRound(playerSelection, computerSelection)
@@ -46,7 +46,7 @@ function game(){
             ties ++
             console.log("Tied! :| Both you and the Computer said " + computerSelection)
         }
-    }
+    // }
     return ("Wins: "+wins+"\nLosses: "+losses+"\nTies: "+ties)
 }
  
