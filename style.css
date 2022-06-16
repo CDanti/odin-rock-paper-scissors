@@ -2,7 +2,7 @@
     display: flex;
     justify-content: center;
     justify-content: space-around;
-    height: 40px;
+    height: 80px;
     /* border:solid green 5px; */
     margin: 10px;
     padding: 10px;
@@ -26,17 +26,22 @@
     width: 100px;
 }
 
+.resultBox{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
-.resultBox {
-    display:flex;
-    justify-content: space-around;
-    padding: 20px;
+.resultBox div{
+    flex: 1,1, auto;
+    display: flex;
+    justify-content: center;
     background-color:darkseagreen;
-    border: solid;
+    padding: 20px;
+    width: 300px;
+    height: 100px;
 }
 
 .resultBox p {
-    color: black;
-    border: solid;
-    /* width: 150px; */
+    font-size: 20px;
 }
