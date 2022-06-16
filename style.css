@@ -7,24 +7,43 @@
     margin: 10px;
     padding: 10px;
     background-color: lightgrey;
+    border-radius: 4px;
 }
 
 .rock{
     background-color: blue;
     color:white;
     width: 100px;
+    border-radius: 8px;
+    border: solid black;
 }
+.rock:active {
+    background-color: darkblue;
+    box-shadow: 0 2px #666;
+    transform: translateY(2px);}
 
 .paper{
     background-color: white;
     width: 100px;
+    border-radius: 8px;
+    border: solid
 }
+.paper:active {
+    background-color: darkgray;
+    box-shadow: 0 2px #666;
+    transform: translateY(2px);}
 
 .scissors{
     background-color: red;
     color: white;
     width: 100px;
+    border-radius: 8px;
+    border: solid black;
 }
+.scissors:active {
+    background-color: darkred;
+    box-shadow: 0 2px #666;
+    transform: translateY(2px);}
 
 .resultBox{
     display: flex;
