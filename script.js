@@ -1,3 +1,24 @@
+window.onload=function(){
+    const rockBtn = document.querySelector('#rock');
+    const paperBtn = document.querySelector('#paper');
+    const scissorsBtn = document.querySelector('#scissors');
+    
+    rockBtn.addEventListener('click', () => {playRound("rock", computerPlay())})
+    paperBtn.addEventListener('click', () => {playRound("paper", computerPlay())})
+    scissorsBtn.addEventListener('click', () => {playRound("scissors", computerPlay())})
+   
+    const container = document.querySelector('resultBox');
+
+    const resultTextTie = document.createElement('p');
+    resultTextTie.textContent = "You tied! :|";
+
+    const resultTextWin = document.createElement('p');
+    resultTextWin.textContent = "You won! :)";
+
+    const resultTextLost = document.createElement('p');
+    resultTextLost.textContent = "You lost! :(";
+}
+
 
 function computerPlay(){
     let computerOptions = ["rock", "paper", "scissors"]
@@ -8,21 +29,24 @@ function computerPlay(){
 
 function playRound(playerSelection, computerSelection) {
     playerSelection = playerSelection.toLowerCase()
-    // console.log("Player Selection: " + playerSelection)
-    // console.log("Computer Selection: " + computerSelection)
+    console.log("Player Selection: " + playerSelection)
+    console.log("Computer Selection: " + computerSelection)
     let result
     if (playerSelection == computerSelection){
-        return result = "tie"
+        // container.appendChild(resultTextTie);
+        return console.log(result = "tie")
     }
     else if (
         playerSelection == "rock" && computerSelection == "scissors" ||
         playerSelection == "paper" && computerSelection == "rock" ||
         playerSelection == "scissors" && computerSelection == "paper"
     ){
-        return result = "win"
+        // container.appendChild(resultTextWin);
+        return console.log(result = "win")
     }
     else{
-        return result = "lost"
+        // container.appendChild(resultTextLost);
+        return console.log(result = "lost")
     }
 }
 
@@ -51,15 +75,6 @@ function game(playerSelection){
 }
  
 let result = 0
-console.log(game());
+// console.log(game());
 
-// const rockBtn = document.querySelector('rock');
-// const paperBtn = document.querySelector('paper');
-// const scissorsBtn = document.querySelector('scissors');
-
-// rockBtn.addEventListener('click', game(playerSelection = "rock"))
-// paperBtn.addEventListener('click', game(playerSelection="rock"))
-// scissorsBtn.addEventListener('click', game(playerSelection="rock"))
-
-
-
+// game(playerSelection = "rock")

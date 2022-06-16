@@ -1,3 +1,7 @@
+body{
+    background-color:cornflowerblue;
+}
+
 .btns{
     display: flex;
     justify-content: center;
@@ -10,37 +14,37 @@
     border-radius: 4px;
 }
 
-.rock{
+#rock{
     background-color: blue;
     color:white;
     width: 100px;
     border-radius: 8px;
     border: solid black;
 }
-.rock:active {
+#rock:active {
     background-color: darkblue;
     box-shadow: 0 2px #666;
     transform: translateY(2px);}
 
-.paper{
+#paper{
     background-color: white;
     width: 100px;
     border-radius: 8px;
     border: solid
 }
-.paper:active {
+#paper:active {
     background-color: darkgray;
     box-shadow: 0 2px #666;
     transform: translateY(2px);}
 
-.scissors{
+#scissors{
     background-color: red;
     color: white;
     width: 100px;
     border-radius: 8px;
     border: solid black;
 }
-.scissors:active {
+#scissors:active {
     background-color: darkred;
     box-shadow: 0 2px #666;
     transform: translateY(2px);}
