@@ -8,8 +8,8 @@ function computerPlay(){
 
 function playRound(playerSelection, computerSelection) {
     playerSelection = playerSelection.toLowerCase()
-    console.log("Player Selection: " + playerSelection)
-    console.log("Computer Selection: " + computerSelection)
+    // console.log("Player Selection: " + playerSelection)
+    // console.log("Computer Selection: " + computerSelection)
     let result
     if (playerSelection == computerSelection){
         return result = "tie"
@@ -26,12 +26,12 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-function game(){
+function game(playerSelection){
     let wins = 0
     let losses = 0
     let ties = 0
     // for (let i = 0; i < 5; i++) {
-        let playerSelection=(prompt("Please enter Rock, Paper, or Scissors: "));
+        // let playerSelection=(prompt("Please enter Rock, Paper, or Scissors: "));
         let computerSelection = computerPlay();
         result = playRound(playerSelection, computerSelection)
         if (result == "win"){
@@ -52,3 +52,14 @@ function game(){
  
 let result = 0
 console.log(game());
+
+// const rockBtn = document.querySelector('rock');
+// const paperBtn = document.querySelector('paper');
+// const scissorsBtn = document.querySelector('scissors');
+
+// rockBtn.addEventListener('click', game(playerSelection = "rock"))
+// paperBtn.addEventListener('click', game(playerSelection="rock"))
+// scissorsBtn.addEventListener('click', game(playerSelection="rock"))
+
+
+
