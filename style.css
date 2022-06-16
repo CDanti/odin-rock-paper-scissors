@@ -29,8 +29,7 @@
 
 .resultBox {
     display:flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: space-around;
     padding: 20px;
     background-color:darkseagreen;
     border: solid;
@@ -39,5 +38,5 @@
 .resultBox p {
     color: black;
     border: solid;
-    width: 150px;
+    /* width: 150px; */
 }
