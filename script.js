@@ -7,16 +7,6 @@ window.onload=function(){
     paperBtn.addEventListener('click', () => {playRound("paper", computerPlay())})
     scissorsBtn.addEventListener('click', () => {playRound("scissors", computerPlay())})
    
-    const container = document.querySelector('resultBox');
-
-    const resultTextTie = document.createElement('p');
-    resultTextTie.textContent = "You tied! :|";
-
-    const resultTextWin = document.createElement('p');
-    resultTextWin.textContent = "You won! :)";
-
-    const resultTextLost = document.createElement('p');
-    resultTextLost.textContent = "You lost! :(";
 }
 
 
@@ -28,12 +18,26 @@ function computerPlay(){
 }
 
 function playRound(playerSelection, computerSelection) {
+
+    const resultBox = document.querySelector('#resultBox');
+    const resultTextDiv = document.createElement('div');
+    resultBox.appendChild(resultTextDiv);
+
+    const resultTextTie = document.createElement('p');
+    resultTextTie.textContent = "You tied! :|";
+
+    const resultTextWin = document.createElement('p');
+    resultTextWin.textContent = "You won! :)";
+
+    const resultTextLost = document.createElement('p');
+    resultTextLost.textContent = "You lost! :(";
+
     playerSelection = playerSelection.toLowerCase()
     console.log("Player Selection: " + playerSelection)
     console.log("Computer Selection: " + computerSelection)
     let result
     if (playerSelection == computerSelection){
-        // container.appendChild(resultTextTie);
+        resultTextDiv.appendChild(resultTextTie);
         return console.log(result = "tie")
     }
     else if (
@@ -41,11 +45,11 @@ function playRound(playerSelection, computerSelection) {
         playerSelection == "paper" && computerSelection == "rock" ||
         playerSelection == "scissors" && computerSelection == "paper"
     ){
-        // container.appendChild(resultTextWin);
+        resultTextDiv.appendChild(resultTextWin);
         return console.log(result = "win")
     }
     else{
-        // container.appendChild(resultTextLost);
+        resultTextDiv.appendChild(resultTextLost);
         return console.log(result = "lost")
     }
 }
@@ -76,5 +80,3 @@ function game(playerSelection){
  
 let result = 0
 // console.log(game());
-
-// game(playerSelection = "rock")
