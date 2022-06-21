@@ -14,10 +14,6 @@ body{
     border-radius: 4px;
 }
 
-#reset{
-    justify-content: right;
-}
-
 .rock{
     background-color: blue;
     color:white;
@@ -57,10 +53,10 @@ body{
     display: flex;
     flex-direction: column;
     align-items: center;
-    border: solid;
+    /* border: solid; */
 }
 
-#resultBox div{
+.resultTextDiv{
     flex: 1,1, auto;
     display: flex;
     justify-content: center;

@@ -4,54 +4,37 @@ window.onload=function(){
     // const paperBtn = document.querySelector('#paper');
     // const scissorsBtn = document.querySelector('#scissors');
 
-    // rockBtn.addEventListener('click', () => { playRound("rock", computerPlay());})
-    // paperBtn.addEventListener('click', () => {playRound("paper", computerPlay());})
-    // scissorsBtn.addEventListener('click', () => {playRound("scissors", computerPlay())})
+    const rockBtn = document.createElement('button'); //rock button is created
+    rockBtn.classList.add('rock');
+    rockBtn.textContent = "Rock"
+    rockBtn.addEventListener('click', () => { playRound("rock", computerPlay());})
 
-    const rockBtn1 = document.createElement('button');
-    rockBtn1.classList.add('rock');
-    rockBtn1.textContent = "Rock"
-    const paperBtn1 = document.createElement('button');
-    paperBtn1.classList.add('paper');
-    paperBtn1.textContent = "Paper"
-    const scissorsBtn1 = document.createElement('button');
-    scissorsBtn1.classList.add('scissors');
-    scissorsBtn1.textContent = "Scissors"
+    const paperBtn = document.createElement('button'); //paper button is created
+    paperBtn.classList.add('paper');
+    paperBtn.textContent = "Paper"
+    paperBtn.addEventListener('click', () => {playRound("paper", computerPlay());})
 
-    const resetBtn = document.createElement('button');
+    const scissorsBtn = document.createElement('button'); //scissors button is created
+    scissorsBtn.classList.add('scissors');
+    scissorsBtn.textContent = "Scissors"
+    scissorsBtn.addEventListener('click', () => {playRound("scissors", computerPlay())})
+
+    const resetBtn = document.createElement('button'); //reset button is created
     resetBtn.textContent = "Play again?"
 
     const startBtn = document.querySelector('#start');
+
+    const resultTextDiv = document.createElement('div');
+    resultTextDiv.classList.add('resultTextDiv')
+
+    const resultText = document.createElement('p');
     
     resetBtn.addEventListener('click', () => {clearResult()})
     startBtn.addEventListener('click', () => {startGame()})
 
-
-function startGame(){
-    //find the results box and creare the text div
-    const resultBox = document.querySelector('#resultBox');
-    const resultTextDiv = document.createElement('div');
-    resultBox.appendChild(resultTextDiv);
-    const btns = document.querySelector('#btns');
-
-    btns.appendChild(rockBtn1);
-    btns.appendChild(paperBtn1);
-    btns.appendChild(scissorsBtn1);
-    btns.appendChild(resetBtn);
-}
-
-function computerPlay(){
-    let computerOptions = ["rock", "paper", "scissors"]
-    let index = Math.floor(Math.random() * (computerOptions.length))
-    let computerOutput = computerOptions[index]
-    return computerOutput
-}
-
 function playRound(playerSelection, computerSelection) {
 
-
     //create the text paragraph that will get put inside the text div
-    const resultText = document.createElement('p');
 
     playerSelection = playerSelection.toLowerCase()
     console.log("Player Selection: " + playerSelection)
@@ -79,11 +62,35 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-function clearResult(){
-    console.log("REMOOOOOOOOOVE")
-    resultTextDiv.removeChild(resultText);
+function startGame(){
+    //find the results box and creare the text div
+    const resultBox = document.querySelector('#resultBox');
+    
+    resultBox.appendChild(resultTextDiv);
+    const btns = document.querySelector('#btns');
+
+    //make the rock, paper, scissors, and reset button appear
+    btns.appendChild(rockBtn);
+    btns.appendChild(paperBtn);
+    btns.appendChild(scissorsBtn);
+    btns.appendChild(resetBtn);
+
+    //removes the start button
+    btns.removeChild(startBtn);
 }
 
+function clearResult(){
+    console.log("REMOOOOOOOOOVE")
+    // startGame();
+    // btns.appendChild(startBtn);
+    resultTextDiv.removeChild(resultText);
+}
+function computerPlay(){
+    let computerOptions = ["rock", "paper", "scissors"]
+    let index = Math.floor(Math.random() * (computerOptions.length))
+    let computerOutput = computerOptions[index]
+    return computerOutput
+}
 }
 
 // function game(playerSelection){
@@ -110,5 +117,3 @@ function clearResult(){
 //     return ("Wins: "+wins+"\nLosses: "+losses+"\nTies: "+ties)
 // }
  
-let result = 0
-// console.log(game());
