@@ -1,19 +1,43 @@
 window.onload=function(){
+    
+    // const rockBtn = document.querySelector('#rock');
+    // const paperBtn = document.querySelector('#paper');
+    // const scissorsBtn = document.querySelector('#scissors');
 
+    // rockBtn.addEventListener('click', () => { playRound("rock", computerPlay());})
+    // paperBtn.addEventListener('click', () => {playRound("paper", computerPlay());})
+    // scissorsBtn.addEventListener('click', () => {playRound("scissors", computerPlay())})
+
+    const rockBtn1 = document.createElement('button');
+    rockBtn1.classList.add('rock');
+    rockBtn1.textContent = "Rock"
+    const paperBtn1 = document.createElement('button');
+    paperBtn1.classList.add('paper');
+    paperBtn1.textContent = "Paper"
+    const scissorsBtn1 = document.createElement('button');
+    scissorsBtn1.classList.add('scissors');
+    scissorsBtn1.textContent = "Scissors"
+
+    const resetBtn = document.createElement('button');
+    resetBtn.textContent = "Play again?"
+
+    const startBtn = document.querySelector('#start');
+    
+    resetBtn.addEventListener('click', () => {clearResult()})
+    startBtn.addEventListener('click', () => {startGame()})
+
+
+function startGame(){
     //find the results box and creare the text div
     const resultBox = document.querySelector('#resultBox');
     const resultTextDiv = document.createElement('div');
     resultBox.appendChild(resultTextDiv);
-    
-    const rockBtn = document.querySelector('#rock');
-    const paperBtn = document.querySelector('#paper');
-    const scissorsBtn = document.querySelector('#scissors');
-    const resetBtn = document.querySelector('#reset');
-    
-    rockBtn.addEventListener('click', () => { playRound("rock", computerPlay());})
-    paperBtn.addEventListener('click', () => {playRound("paper", computerPlay());})
-    scissorsBtn.addEventListener('click', () => {playRound("scissors", computerPlay())})
-    resetBtn.addEventListener('click', () => {clearResult()})    
+    const btns = document.querySelector('#btns');
+
+    btns.appendChild(rockBtn1);
+    btns.appendChild(paperBtn1);
+    btns.appendChild(scissorsBtn1);
+    btns.appendChild(resetBtn);
 }
 
 function computerPlay(){
@@ -58,6 +82,8 @@ function playRound(playerSelection, computerSelection) {
 function clearResult(){
     console.log("REMOOOOOOOOOVE")
     resultTextDiv.removeChild(resultText);
+}
+
 }
 
 // function game(playerSelection){
