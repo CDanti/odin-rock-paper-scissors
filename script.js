@@ -7,17 +7,26 @@ window.onload=function(){
     const rockBtn = document.createElement('button'); //rock button is created
     rockBtn.classList.add('rock');
     rockBtn.textContent = "Rock"
-    rockBtn.addEventListener('click', () => { playRound("rock", computerPlay());})
+    rockBtn.addEventListener('click', () => {
+        playRound("rock", computerPlay());
+        // playerSelection = "rock";
+    })
 
     const paperBtn = document.createElement('button'); //paper button is created
     paperBtn.classList.add('paper');
     paperBtn.textContent = "Paper"
-    paperBtn.addEventListener('click', () => {playRound("paper", computerPlay());})
+    paperBtn.addEventListener('click', () => {
+        playRound("paper", computerPlay());
+        // playerSelection = "paper";
+    })
 
     const scissorsBtn = document.createElement('button'); //scissors button is created
     scissorsBtn.classList.add('scissors');
     scissorsBtn.textContent = "Scissors"
-    scissorsBtn.addEventListener('click', () => {playRound("scissors", computerPlay())})
+    scissorsBtn.addEventListener('click', () => {
+        playRound("scissors", computerPlay());
+        // playerSelection = "scissors";
+    })
 
     const resetBtn = document.createElement('button'); //reset button is created
     resetBtn.textContent = "Play again?"
@@ -39,7 +48,6 @@ window.onload=function(){
 function playRound(playerSelection, computerSelection) {
 
     //create the text paragraph that will get put inside the text div
-    playerSelection = playerSelection.toLowerCase()
     console.log("Player Selection: " + playerSelection)
     console.log("Computer Selection: " + computerSelection)
 
@@ -47,8 +55,9 @@ function playRound(playerSelection, computerSelection) {
     let result
     if (playerSelection == computerSelection){ //if player ties
         resultText.textContent = "You tied! :|"; //set result text
-        resultTextDiv.appendChild(resultText) //add result text to result div
-        console.log(result = "tie")
+        resultTextDiv.appendChild(resultText); //add result text to result div
+        console.log(result = "tie");
+        return result;
     }
     else if ( //if player wins
         playerSelection == "rock" && computerSelection == "scissors" ||
@@ -56,12 +65,14 @@ function playRound(playerSelection, computerSelection) {
         playerSelection == "scissors" && computerSelection == "paper"){
         resultText.textContent = "You won! :)"; //set result text
         resultTextDiv.appendChild(resultText); //add result text to result div
-        console.log(result = "win")
+        console.log(result = "win");
+        return result;
     }
     else{ //if player loses
         resultText.textContent = "You lost! :("; //set result text
         resultTextDiv.appendChild(resultText); //add result text to result div
-        console.log(result = "lost")
+        console.log(result = "lost");
+        return result;
     }
 }
 
@@ -82,7 +93,6 @@ function startGame(){
     //removes the start button
     btns.removeChild(startBtn);
 }
-
 function clearResult(){ 
     // refreshes the page, therefore restarting the game
     window.location.reload(true)
@@ -96,29 +106,34 @@ function computerPlay(){
     return computerOutput
 }
 
-
-// function game(playerSelection){
+// function scoreTracker(){
 //     let wins = 0
 //     let losses = 0
 //     let ties = 0
-//     // for (let i = 0; i < 5; i++) {
-//         // let playerSelection=(prompt("Please enter Rock, Paper, or Scissors: "));
-//         let computerSelection = computerPlay();
+//     for (let i = 0; i < 5; i++) {
 //         result = playRound(playerSelection, computerSelection)
 //         if (result == "win"){
 //             wins ++
+//             const scoreTrackerWin = document.createElement('p');
+//             scoreTrackerWin.textContent = "Wins: "+wins;
 //             console.log("You won! :) The computer said " + computerSelection + " and you said " + playerSelection)
 //         }
 //         else if (result == "lost"){
 //             losses ++
+//             const scoreTrackerLost = document.createElement('p');
+//             scoreTrackerLost.textContent = "Losses: "+ losses;
 //             console.log("You lost! :(  The computer said " + computerSelection + " and you said " + playerSelection)
 //         }
 //         else if (result == "tie"){
 //             ties ++
+//             const scoreTrackerTie = document.createElement('p');
+//             scoreTrackerTie.textContent = "Ties: "+ties;
 //             console.log("Tied! :| Both you and the Computer said " + computerSelection)
 //         }
-//     // }
+//     }
+//     scoreTracker.appendChild(scoreTrackerWin);
+//     scoreTracker.appendChild(scoreTrackerLost);
+//     scoreTracker.appendChild(scoreTrackerTie);
 //     return ("Wins: "+wins+"\nLosses: "+losses+"\nTies: "+ties)
 // }
- 
 }
