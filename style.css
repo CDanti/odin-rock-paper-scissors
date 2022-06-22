@@ -1,3 +1,10 @@
+header{
+    font-size: 30px;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    padding-bottom:20px;
+}
+
 body{
     background-color:cornflowerblue;
 }
@@ -8,7 +15,7 @@ body{
     justify-content: space-around;
     height: 80px;
     /* border:solid green 5px; */
-    margin: 10px;
+    margin: 20px;
     padding: 10px;
     background-color: lightgrey;
     border-radius: 4px;
@@ -51,13 +58,14 @@ body{
 
 #resultBox{
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    /* border: solid; */
+    /* flex-direction: column; */
+    justify-content: space-evenly;
+    /* align-content: center; */
+    border: solid;
+    gap:20px;
 }
 
 .resultTextDiv{
-    flex: 1,1, auto;
     display: flex;
     justify-content: center;
     background-color:darkseagreen;
@@ -68,6 +76,18 @@ body{
 }
 
 #resultBox p {
-    font-size: 20px;
-    border: solid white;
+    font-size: 26px;
+    /* border: solid white; */
+    width: 200px;
+    text-align: center;
+}
+
+.scoreTracker{
+    background-color:cadetblue;
+    font-size: 26px;
+    border:solid;
+    width:175px;
+    height:200px;
+    /* justify-self: end; */
+    justify-self: right;
 }

@@ -27,6 +27,10 @@ window.onload=function(){
     const resultTextDiv = document.createElement('div');
     resultTextDiv.classList.add('resultTextDiv')
 
+    const scoreTracker = document.createElement('div');
+    scoreTracker.classList.add('scoreTracker');
+    scoreTracker.textContent = "hi";
+
     const resultText = document.createElement('p');
     
     resetBtn.addEventListener('click', () => {clearResult()})
@@ -35,7 +39,6 @@ window.onload=function(){
 function playRound(playerSelection, computerSelection) {
 
     //create the text paragraph that will get put inside the text div
-
     playerSelection = playerSelection.toLowerCase()
     console.log("Player Selection: " + playerSelection)
     console.log("Computer Selection: " + computerSelection)
@@ -67,6 +70,7 @@ function startGame(){
     const resultBox = document.querySelector('#resultBox');
     
     resultBox.appendChild(resultTextDiv);
+    resultBox.appendChild(scoreTracker)
     const btns = document.querySelector('#btns');
 
     //make the rock, paper, scissors, and reset button appear
@@ -79,11 +83,11 @@ function startGame(){
     btns.removeChild(startBtn);
 }
 
-function clearResult(){
+function clearResult(){ 
+    // refreshes the page, therefore restarting the game
+    window.location.reload(true)
     console.log("REMOOOOOOOOOVE")
-    // startGame();
-    // btns.appendChild(startBtn);
-    resultTextDiv.removeChild(resultText);
+    // resultTextDiv.removeChild(resultText);
 }
 function computerPlay(){
     let computerOptions = ["rock", "paper", "scissors"]
@@ -91,7 +95,7 @@ function computerPlay(){
     let computerOutput = computerOptions[index]
     return computerOutput
 }
-}
+
 
 // function game(playerSelection){
 //     let wins = 0
@@ -117,3 +121,4 @@ function computerPlay(){
 //     return ("Wins: "+wins+"\nLosses: "+losses+"\nTies: "+ties)
 // }
  
+}
