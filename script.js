@@ -33,15 +33,19 @@ window.onload=function(){
     const resultTextDiv = document.createElement('div'); //result text div is created
     resultTextDiv.classList.add('resultTextDiv')
     const resultText = document.createElement('p'); // result text p is created
+    resultText.classList.add('resultBoxText');
 
     const scoreTracker = document.createElement('div'); //score tracker div is created
     scoreTracker.classList.add('scoreTracker');
     scoreTracker.textContent = "hi";
 
     const choicesBox = document.createElement('div'); //choices box created
-    choicesBox.classList.add('scoreTracker');
+    choicesBox.classList.add('choicesBox');
     choicesBox.style.order = -1;
-    choicesBox.textContent = "heyo bby";
+
+    const computerChoice = document.createElement('p');
+    const playerChoice = document.createElement('p');
+
 
     
 
@@ -50,6 +54,10 @@ function playRound(playerSelection, computerSelection) {
     //create the text paragraph that will get put inside the text div
     console.log("Player Selection: " + playerSelection)
     console.log("Computer Selection: " + computerSelection)
+    playerChoice.textContent = "Player Selection: " + playerSelection;
+    computerChoice.textContent = "Computer Selection: " + computerSelection;
+    choicesBox.appendChild(playerChoice);
+    choicesBox.appendChild(computerChoice);
 
     //RPS logic
     let result
