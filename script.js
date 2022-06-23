@@ -37,17 +37,15 @@ window.onload=function(){
 
     const scoreTracker = document.createElement('div'); //score tracker div is created
     scoreTracker.classList.add('scoreTracker');
-    scoreTracker.textContent = "hi";
+    scoreTracker.textContent = "hi"; // to be removed at some point
 
     const choicesBox = document.createElement('div'); //choices box created
     choicesBox.classList.add('choicesBox');
-    choicesBox.style.order = -1;
+    choicesBox.style.order = -1; //moves the choicex box to the leftmost place
 
-    const computerChoice = document.createElement('p');
+    //these are pretty self explanatory
+    const computerChoice = document.createElement('p'); 
     const playerChoice = document.createElement('p');
-
-
-    
 
 function playRound(playerSelection, computerSelection) {
 
