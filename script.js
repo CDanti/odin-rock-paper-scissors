@@ -1,4 +1,8 @@
 window.onload=function(){
+    let wins = 0;
+    let losses = 0;
+    let ties = 0;
+    let rounds = 0;
     
     // const rockBtn = document.querySelector('#rock');
     // const paperBtn = document.querySelector('#paper');
@@ -7,43 +11,39 @@ window.onload=function(){
     const rockBtn = document.createElement('button'); //rock button is created
     rockBtn.classList.add('rock');
     rockBtn.textContent = "Rock"
-    rockBtn.addEventListener('click', () => {
-        playRound("rock", computerPlay());
-        // playerSelection = "rock";
-    })
+    rockBtn.addEventListener('click', () => {playRound("rock", computerPlay());})
 
     const paperBtn = document.createElement('button'); //paper button is created
     paperBtn.classList.add('paper');
     paperBtn.textContent = "Paper"
-    paperBtn.addEventListener('click', () => {
-        playRound("paper", computerPlay());
-        // playerSelection = "paper";
-    })
+    paperBtn.addEventListener('click', () => {playRound("paper", computerPlay());})
 
     const scissorsBtn = document.createElement('button'); //scissors button is created
     scissorsBtn.classList.add('scissors');
     scissorsBtn.textContent = "Scissors"
-    scissorsBtn.addEventListener('click', () => {
-        playRound("scissors", computerPlay());
-        // playerSelection = "scissors";
-    })
+    scissorsBtn.addEventListener('click', () => {playRound("scissors", computerPlay());})
 
     const resetBtn = document.createElement('button'); //reset button is created
     resetBtn.textContent = "Play again?"
+    resetBtn.addEventListener('click', () => {clearResult()})
 
-    const startBtn = document.querySelector('#start');
+    const startBtn = document.querySelector('#start'); //start button is created
+    startBtn.addEventListener('click', () => {startGame()})
 
-    const resultTextDiv = document.createElement('div');
+    const resultTextDiv = document.createElement('div'); //result text div is created
     resultTextDiv.classList.add('resultTextDiv')
+    const resultText = document.createElement('p'); // result text p is created
 
-    const scoreTracker = document.createElement('div');
+    const scoreTracker = document.createElement('div'); //score tracker div is created
     scoreTracker.classList.add('scoreTracker');
     scoreTracker.textContent = "hi";
 
-    const resultText = document.createElement('p');
+    const choicesBox = document.createElement('div'); //choices box created
+    choicesBox.classList.add('scoreTracker');
+    choicesBox.style.order = -1;
+    choicesBox.textContent = "heyo bby";
+
     
-    resetBtn.addEventListener('click', () => {clearResult()})
-    startBtn.addEventListener('click', () => {startGame()})
 
 function playRound(playerSelection, computerSelection) {
 
@@ -81,7 +81,8 @@ function startGame(){
     const resultBox = document.querySelector('#resultBox');
     
     resultBox.appendChild(resultTextDiv);
-    resultBox.appendChild(scoreTracker)
+    resultBox.appendChild(scoreTracker);
+    resultBox.appendChild(choicesBox);
     const btns = document.querySelector('#btns');
 
     //make the rock, paper, scissors, and reset button appear
@@ -106,34 +107,34 @@ function computerPlay(){
     return computerOutput
 }
 
-// function scoreTracker(){
-//     let wins = 0
-//     let losses = 0
-//     let ties = 0
-//     for (let i = 0; i < 5; i++) {
-//         result = playRound(playerSelection, computerSelection)
-//         if (result == "win"){
-//             wins ++
-//             const scoreTrackerWin = document.createElement('p');
-//             scoreTrackerWin.textContent = "Wins: "+wins;
-//             console.log("You won! :) The computer said " + computerSelection + " and you said " + playerSelection)
-//         }
-//         else if (result == "lost"){
-//             losses ++
-//             const scoreTrackerLost = document.createElement('p');
-//             scoreTrackerLost.textContent = "Losses: "+ losses;
-//             console.log("You lost! :(  The computer said " + computerSelection + " and you said " + playerSelection)
-//         }
-//         else if (result == "tie"){
-//             ties ++
-//             const scoreTrackerTie = document.createElement('p');
-//             scoreTrackerTie.textContent = "Ties: "+ties;
-//             console.log("Tied! :| Both you and the Computer said " + computerSelection)
-//         }
-//     }
-//     scoreTracker.appendChild(scoreTrackerWin);
-//     scoreTracker.appendChild(scoreTrackerLost);
-//     scoreTracker.appendChild(scoreTrackerTie);
-//     return ("Wins: "+wins+"\nLosses: "+losses+"\nTies: "+ties)
-// }
+function trackScore(){
+    while (rounds<5) {
+        result = playRound(playerSelection, computerSelection)
+        if (result == "win"){
+            wins ++
+            rounds ++
+            const scoreTrackerWin = document.createElement('p');
+            scoreTrackerWin.textContent = "Wins: "+wins;
+            console.log("You won! :) The computer said " + computerSelection + " and you said " + playerSelection)
+        }
+        else if (result == "lost"){
+            losses ++
+            rounds ++
+            const scoreTrackerLost = document.createElement('p');
+            scoreTrackerLost.textContent = "Losses: "+ losses;
+            console.log("You lost! :(  The computer said " + computerSelection + " and you said " + playerSelection)
+        }
+        else if (result == "tie"){
+            ties ++
+            rounds ++
+            const scoreTrackerTie = document.createElement('p');
+            scoreTrackerTie.textContent = "Ties: "+ties;
+            console.log("Tied! :| Both you and the Computer said " + computerSelection)
+        }
+    }
+    scoreTracker.appendChild(scoreTrackerWin);
+    scoreTracker.appendChild(scoreTrackerLost);
+    scoreTracker.appendChild(scoreTrackerTie);
+    return ("Wins: "+wins+"\nLosses: "+losses+"\nTies: "+ties)
+}
 }
