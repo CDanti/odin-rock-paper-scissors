@@ -34,6 +34,8 @@ window.onload=function(){
     resultTextDiv.classList.add('resultTextDiv')
     const resultText = document.createElement('p'); // result text p is created
     resultText.classList.add('resultBoxText');
+    resultText.textContent = "Who will win?? Play to find out!"; //text in result text spot before round is played
+    resultTextDiv.appendChild(resultText);
 
     const scoreTracker = document.createElement('div'); //score tracker div is created
     scoreTracker.classList.add('scoreTracker');
