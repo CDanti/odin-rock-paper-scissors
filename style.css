@@ -5,6 +5,10 @@ header{
     padding-bottom:20px;
 }
 
+p {
+    margin: 0px;
+}
+
 body{
     background-color:cornflowerblue;
 }
@@ -58,15 +62,14 @@ body{
 
 #resultBox{
     display: flex;
-    /* flex-direction: column; */
     justify-content: space-evenly;
-    /* align-content: center; */
     /* border: solid; */
 }
 
 .resultTextDiv{
     display: flex;
     justify-content: center;
+    align-items: center;
     background-color:darkseagreen;
     /* padding: 20px; */
     width: 300px;
@@ -74,29 +77,49 @@ body{
     border: solid blue;
 }
 
-.resultBoxText {
+.resultBoxText{
     font-size: 26px;
     /* border: solid white; */
     width: 200px;
     text-align: center;
+    color: rgb(46, 37, 37);
 }
 
 .scoreTracker{
     background-color:cadetblue;
     font-size: 26px;
     border:solid;
-    width:320px;
+    width:325px;
     height:200px;
     /* justify-self: end; */
     /* justify-self: right; */
     text-align: center;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.scoreTracker p{
+    line-height: 50px;
+    color: rgb(46, 37, 37);
 }
 
 .choicesBox{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     background-color: cadetblue;
     font-size: 26px;
     border:solid;
-    width:320px;
+    width: 325px;
     height:200px;
-    text-align-last:left;
+    /* text-align-last:left; */
+}
+
+.choicesText{
+    margin-left:10px;
+    margin-right: 10px;
+    color: rgb(46, 37, 37);
+    line-height: 30px;
 }

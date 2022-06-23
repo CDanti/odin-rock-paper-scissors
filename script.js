@@ -37,7 +37,20 @@ window.onload=function(){
 
     const scoreTracker = document.createElement('div'); //score tracker div is created
     scoreTracker.classList.add('scoreTracker');
-    scoreTracker.textContent = "hi"; // to be removed at some point
+
+    const scoreTrackerTextWin = document.createElement('p'); //win tracker
+    scoreTrackerTextWin.textContent = "Wins: "+wins;
+    scoreTracker.appendChild(scoreTrackerTextWin);
+    const scoreTrackerTextLose = document.createElement('p'); //lose tracker
+    scoreTrackerTextLose.textContent = "Losses: "+losses;
+    scoreTracker.appendChild(scoreTrackerTextLose);
+    const scoreTrackerTextTie = document.createElement('p'); //tie tracker
+    scoreTrackerTextTie.textContent = "Ties: "+ties;
+    scoreTracker.appendChild(scoreTrackerTextTie);
+    const scoreTrackerTextRounds = document.createElement('p') //rounds tracker
+    scoreTrackerTextRounds.textContent = "Rounds: " + rounds;
+    scoreTracker.appendChild(scoreTrackerTextRounds)
+
 
     const choicesBox = document.createElement('div'); //choices box created
     choicesBox.classList.add('choicesBox');
@@ -45,7 +58,10 @@ window.onload=function(){
 
     //these are pretty self explanatory
     const computerChoice = document.createElement('p'); 
+    computerChoice.classList.add('choicesText');
     const playerChoice = document.createElement('p');
+    playerChoice.classList.add('choicesText');
+
 
 function playRound(playerSelection, computerSelection) {
 
@@ -63,6 +79,10 @@ function playRound(playerSelection, computerSelection) {
         resultText.textContent = "You tied! :|"; //set result text
         resultTextDiv.appendChild(resultText); //add result text to result div
         console.log(result = "tie");
+        ties ++;
+        rounds ++;
+        scoreTrackerTextTie.textContent = "Ties: "+ties;
+        scoreTrackerTextRounds.textContent = "Rounds: " + rounds;
         return result;
     }
     else if ( //if player wins
@@ -72,12 +92,20 @@ function playRound(playerSelection, computerSelection) {
         resultText.textContent = "You won! :)"; //set result text
         resultTextDiv.appendChild(resultText); //add result text to result div
         console.log(result = "win");
+        wins ++;
+        rounds ++;
+        scoreTrackerTextWin.textContent = "Wins: "+wins;
+        scoreTrackerTextRounds.textContent = "Rounds: " + rounds;
         return result;
     }
     else{ //if player loses
         resultText.textContent = "You lost! :("; //set result text
         resultTextDiv.appendChild(resultText); //add result text to result div
         console.log(result = "lost");
+        losses ++;
+        rounds ++;
+        scoreTrackerTextLose.textContent = "Losses: "+losses;
+        scoreTrackerTextRounds.textContent = "Rounds: " + rounds;
         return result;
     }
 }
