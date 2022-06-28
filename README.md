@@ -1,6 +1,6 @@
 # odin-rock-paper-scissors
 
-TOP Page: https://www.theodinproject.com/lessons/foundations-revisiting-rock-paper-scissors 
+TOP Page: https: //www.theodinproject.com/lessons/foundations-revisiting-rock-paper-scissors 
 
 Published Page: https://cdanti.github.io/odin-rock-paper-scissors/
 
