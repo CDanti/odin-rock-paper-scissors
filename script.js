@@ -65,6 +65,7 @@ window.onload=function(){
     playerChoice.classList.add('choicesText');
 
 
+
 function playRound(playerSelection, computerSelection) {
 
     //create the text paragraph that will get put inside the text div
@@ -75,8 +76,8 @@ function playRound(playerSelection, computerSelection) {
     choicesBox.appendChild(playerChoice);
     choicesBox.appendChild(computerChoice);
 
+
     //RPS logic
-    let result
     if (playerSelection == computerSelection){ //if player ties
         resultText.textContent = "You tied! :|"; //set result text
         resultTextDiv.appendChild(resultText); //add result text to result div
@@ -85,7 +86,7 @@ function playRound(playerSelection, computerSelection) {
         rounds ++;
         scoreTrackerTextTie.textContent = "Ties: "+ties;
         scoreTrackerTextRounds.textContent = "Rounds: " + rounds;
-        return result;
+        // return result;
     }
     else if ( //if player wins
         playerSelection == "rock" && computerSelection == "scissors" ||
@@ -98,7 +99,7 @@ function playRound(playerSelection, computerSelection) {
         rounds ++;
         scoreTrackerTextWin.textContent = "Wins: "+wins;
         scoreTrackerTextRounds.textContent = "Rounds: " + rounds;
-        return result;
+        // return result;
     }
     else{ //if player loses
         resultText.textContent = "You lost! :("; //set result text
@@ -108,7 +109,11 @@ function playRound(playerSelection, computerSelection) {
         rounds ++;
         scoreTrackerTextLose.textContent = "Losses: "+losses;
         scoreTrackerTextRounds.textContent = "Rounds: " + rounds;
-        return result;
+        // return result;
+    }
+    console.log("rounds: " + rounds);
+    if (rounds >= 5){
+        endGame();
     }
 }
 
@@ -143,34 +148,19 @@ function computerPlay(){
     return computerOutput
 }
 
-function trackScore(){
-    while (rounds<5) {
-        result = playRound(playerSelection, computerSelection)
-        if (result == "win"){
-            wins ++
-            rounds ++
-            const scoreTrackerWin = document.createElement('p');
-            scoreTrackerWin.textContent = "Wins: "+wins;
-            console.log("You won! :) The computer said " + computerSelection + " and you said " + playerSelection)
-        }
-        else if (result == "lost"){
-            losses ++
-            rounds ++
-            const scoreTrackerLost = document.createElement('p');
-            scoreTrackerLost.textContent = "Losses: "+ losses;
-            console.log("You lost! :(  The computer said " + computerSelection + " and you said " + playerSelection)
-        }
-        else if (result == "tie"){
-            ties ++
-            rounds ++
-            const scoreTrackerTie = document.createElement('p');
-            scoreTrackerTie.textContent = "Ties: "+ties;
-            console.log("Tied! :| Both you and the Computer said " + computerSelection)
-        }
+function endGame(){
+    console.log("hiya, the game is over go away");
+    if ( wins>losses ){
+        resultText.textContent = "Game over! You Won!"
     }
-    scoreTracker.appendChild(scoreTrackerWin);
-    scoreTracker.appendChild(scoreTrackerLost);
-    scoreTracker.appendChild(scoreTrackerTie);
-    return ("Wins: "+wins+"\nLosses: "+losses+"\nTies: "+ties)
+    else if (wins < losses){
+        resultText.textContent = "Game over! You Lost :("
+    }
+    else{
+        resultText.textContent = "Game over! You Tied :|"
+    }
+    btns.removeChild(rockBtn);
+    btns.removeChild(paperBtn);
+    btns.removeChild(scissorsBtn);
 }
 }
